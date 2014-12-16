@@ -54,7 +54,10 @@ RUN apt-get install -y -q \
   php5-curl \
   php5-gd \
   php5-mcrypt \
+  php5-xsl \
+  php5-sqlite \
   php-pear
+RUN ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
 
 RUN php -r "readfile('https://getcomposer.org/installer');" | php
 RUN mv composer.phar /usr/local/bin/composer
