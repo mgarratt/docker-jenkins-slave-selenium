@@ -14,6 +14,7 @@ RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sou
 
 RUN apt-get update -y
 RUN apt-get install -y -q \
+  supervisor \
   firefox \
   git \
   google-chrome-stable \
@@ -41,6 +42,7 @@ RUN chgrp -R seleuser /home/seleuser
 RUN mkdir -p /usr/share/desktop-directories
 
 COPY ./scripts/ /home/root/scripts
+COPY ./configs/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY ./configs/sshd_config /etc/ssh/sshd_config
 
 RUN npm install -g selenium-standalone@2.43.1-5
