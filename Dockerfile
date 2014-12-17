@@ -65,4 +65,4 @@ RUN php -r "readfile('https://getcomposer.org/installer');" | php
 RUN mv composer.phar /usr/local/bin/composer
 
 EXPOSE 22 4444 5999
-ENTRYPOINT ["sh", "/home/root/scripts/start.sh"]
+ENTRYPOINT ["/usr/bin/supervisord"]
